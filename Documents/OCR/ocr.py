@@ -23,7 +23,7 @@ path2 = r''
 img2 =cv2.imread(path,0)
 gray = cv2.cvtColor(img2,cv2,COLOR_BGR2GRAY)
 canny = cv2.Canny(gray,100,500)
-#x represents my image here, below is an image enhancement code
+#x represents an integer here, below is an image enhancement code. X gives the factor of enhancement
 def enhance(x):
     e=Image.open(r'path')
     enh_bri = ImageEnhance.Brightness(e)
