@@ -16,8 +16,14 @@ f = open("sampleocr.txt","w+")
 text = pytesseract.image_to_string(img)
 f.write(text)
 f.close()
+
 #os.remove(filename)
 print(text)
+path2 = r''
+img2 =cv2.imread(path,0)
+gray = cv2.cvtColor(img2,cv2,COLOR_BGR2GRAY)
+canny = cv2.Canny(gray,100,500)
+
 
 cv2.waitKey()
 cv2.destroyAllWindows()
