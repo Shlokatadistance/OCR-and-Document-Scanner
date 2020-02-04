@@ -23,7 +23,23 @@ path2 = r''
 img2 =cv2.imread(path,0)
 gray = cv2.cvtColor(img2,cv2,COLOR_BGR2GRAY)
 canny = cv2.Canny(gray,100,500)
-
-
+#x represents my image here, below is an image enhancement code
+def enhance(x):
+    e=Image.open(r'path')
+    enh_bri = ImageEnhance.Brightness(e)
+    brightness = 1
+    image_brightened = enh_bri.enhance(brightness)
+    enh_col = ImageEnhance.Color(image_brightened)
+    color = 1.2
+    image_colored = enh_col.enhance(color)
+    enh_con = ImageEnhance.Contrast(image_colored)
+    contrast = 1.5
+    image_contrasted = enh_con.enhance(contrast)
+    enh_sha = ImageEnhance.Sharpness(image_contrasted)
+    sharpness = 2
+    image_sharped = enh_sha.enhance(sharpness)
+    image_sharped.save(r'path')
+    enhanced=cv2.imread(r'path')
+    cv2.imshow('enhanced',imutils.resize(enhanced, height = 500))
 cv2.waitKey()
 cv2.destroyAllWindows()
